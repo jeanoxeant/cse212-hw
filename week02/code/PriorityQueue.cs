@@ -26,12 +26,13 @@
         var highPriorityIndex = 0;
         for (int index = 1; index < _queue.Count - 1; index++)
         {
-            if (_queue[index].Priority >= _queue[highPriorityIndex].Priority)
+            if (_queue[index].Priority > _queue[highPriorityIndex].Priority) // Use '>' to maintain FIFO for equal priorities instead of '>='
                 highPriorityIndex = index;
         }
 
         // Remove and return the item with the highest priority
-        var value = _queue[highPriorityIndex].Value;
+        var value = _queue[highPriorityIndex].Value; // Get the value before removing
+        _queue.RemoveAt(highPriorityIndex); // Correctly remove the item at highPriorityIndex
         return value;
     }
 
