@@ -33,6 +33,12 @@ public class Maze
     public void MoveLeft()
     {
         // FILL IN CODE
+        int newX = _currX - 1;
+        if (!_mazeMap.ContainsKey((newX, _currY)) || !_mazeMap[(_currX, _currY)][0])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        _currX = newX;
     }
 
     /// <summary>
@@ -42,6 +48,12 @@ public class Maze
     public void MoveRight()
     {
         // FILL IN CODE
+        int newX = _currX + 1;
+        if (!_mazeMap.ContainsKey((newX, _currY)) || !_mazeMap[(_currX, _currY)][1])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        _currX = newX;
     }
 
     /// <summary>
@@ -51,6 +63,12 @@ public class Maze
     public void MoveUp()
     {
         // FILL IN CODE
+        int newY = _currY - 1;
+        if (!_mazeMap.ContainsKey((_currX, newY)) || !_mazeMap[(_currX, _currY)][2])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        _currY = newY;
     }
 
     /// <summary>
@@ -60,6 +78,12 @@ public class Maze
     public void MoveDown()
     {
         // FILL IN CODE
+        int newY = _currY + 1;
+        if (!_mazeMap.ContainsKey((_currX, newY)) || !_mazeMap[(_currX, _currY)][3])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        _currY = newY;
     }
 
     public string GetStatus()
