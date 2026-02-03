@@ -27,7 +27,10 @@
         for (int index = 1; index < _queue.Count - 1; index++)
         {
             if (_queue[index].Priority > _queue[highPriorityIndex].Priority) // Use '>' to maintain FIFO for equal priorities instead of '>='
+            {
                 highPriorityIndex = index;
+            }
+               
         }
 
         // Remove and return the item with the highest priority

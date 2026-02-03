@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 // DO NOT MODIFY THIS FILE
 
@@ -9,11 +10,15 @@ public class InsertTailTests
     public void InsertTail_Empty()
     {
         var ll = new LinkedList();
+        Debug.WriteLine("=== Running InsertTail_Empty ===");
 
         Assert.IsTrue(ll.HeadAndTailAreNull());
+        Debug.WriteLine($"{ll.ToString()}");
         ll.InsertTail(1);
+        Debug.WriteLine($"{ll.ToString()}");
         Assert.IsTrue(ll.HeadAndTailAreNotNull());
         Assert.AreEqual("<LinkedList>{1}", ll.ToString());
+        Debug.WriteLine($"{ll.ToString()}");
     }
 
     [TestMethod]
@@ -45,27 +50,36 @@ public class RemoveTailTests
     public void RemoveTail_Empty()
     {
         var ll = new LinkedList();
+        Debug.WriteLine("=== Running RemoveTail_Empty ===");
 
         ll.RemoveTail();
+        Debug.WriteLine(ll.ToString());
         Assert.IsTrue(ll.HeadAndTailAreNull());
+        Debug.WriteLine(ll.ToString());
         Assert.AreEqual("<LinkedList>{}", ll.ToString());
+        Debug.WriteLine(ll.ToString());
     }
 
     [TestMethod]
     public void RemoveTail_Single()
     {
         var ll = new LinkedList();
+        Debug.WriteLine("=== Running RemoveSingle_Empty ==="); 
 
         ll.InsertHead(1);
+        Debug.WriteLine(ll.ToString());
         ll.RemoveTail();
+        Debug.WriteLine(ll.ToString());
         Assert.IsTrue(ll.HeadAndTailAreNull());
         Assert.AreEqual("<LinkedList>{}", ll.ToString());
+        Debug.WriteLine(ll.ToString());
     }
 
     [TestMethod]
     public void RemoveTail_Basic()
     {
         var ll = new LinkedList();
+        Debug.WriteLine("=== Running RemoveTail_Basic ===");
 
         ll.InsertHead(2);
         ll.InsertHead(2);
@@ -73,11 +87,14 @@ public class RemoveTailTests
         ll.InsertHead(3);
         ll.InsertHead(4);
         ll.InsertHead(5);
+        Debug.WriteLine(ll);
 
         ll.RemoveTail();
+        Debug.WriteLine(ll);
         Assert.AreEqual("<LinkedList>{5, 4, 3, 2, 2}", ll.ToString());
 
         ll.RemoveTail();
+        Debug.WriteLine(ll);
         Assert.AreEqual("<LinkedList>{5, 4, 3, 2}", ll.ToString());
     }
 }
